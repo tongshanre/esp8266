@@ -1,6 +1,7 @@
 import socket, time
 from machine import Pin
 from base import MSG
+from init import Init
 '''
     led 闪烁
 '''
@@ -37,6 +38,10 @@ def msg_trans(msg):  # 消息处理
 
 
 def start_engine(port=8266):
+    address = ('127.0.0.1', 5000)
+    # 1.注册节点
+    Init.regist(address)
+    # 2.启动监听
     ss = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     ss.bind(('0.0.0.0', 8266))
     ss.listen(1)
