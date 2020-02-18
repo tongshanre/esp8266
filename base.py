@@ -9,7 +9,7 @@ ESP8266 消息处理引擎：协议（UDP）,消息格式（JSON）
         CTL:      1, AP热点控制
                   2,
         DATA:     1, IO端口控制, port:1
-                  2,
+                  2, 设备重新注册
         HEART:    无用
    data:          # 消息类型
    response:      # 消息响应 200正常，其他错误

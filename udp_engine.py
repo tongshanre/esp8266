@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 import socket, time
 from machine import Pin
 from base import MSG
@@ -5,6 +6,7 @@ from init import Init
 '''
     led 闪烁
 '''
+address = ('192.168.3.75', 5000)
 
 
 def blink(times):
@@ -31,6 +33,10 @@ def msg_trans(msg):  # 消息处理
             Pin(int(info[0]), Pin.OUT).value(int(info[1]))
             msg['response'] = 200
             return msg
+        elif 2 == msg['code']:
+            Init.regist(address)
+            msg['response'] = 200
+            return msg
         else:
             pass
     else:
@@ -38,7 +44,6 @@ def msg_trans(msg):  # 消息处理
 
 
 def start_engine(port=8266):
-    address = ('127.0.0.1', 5000)
     # 1.注册节点
     Init.regist(address)
     # 2.启动监听
