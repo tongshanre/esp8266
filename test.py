@@ -1,4 +1,4 @@
-﻿# -*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 import socket, time
 from machine import Pin
 from base import MSG
@@ -43,9 +43,8 @@ def msg_trans(msg):  # 消息处理
 
 def start_engine(port=8266):
     # 1.注册节点
-    blink(1)
     Init.regist(address)
-    # 2.启动监听
+    blink(1)
     ss = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     ss.bind(('0.0.0.0', 8266))
     ss.listen(1)
